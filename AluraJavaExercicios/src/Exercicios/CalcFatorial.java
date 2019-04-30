@@ -14,6 +14,7 @@ public class CalcFatorial {
 		if (n == 0) {
 			return 1;
 		} else {
+			System.out.println("Valor de n= "+n +" | Valor do fatorial(n - 1)="+fatorial(n - 1));
 			return n * fatorial(n - 1);
 
 		}
