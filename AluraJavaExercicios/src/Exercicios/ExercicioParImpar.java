@@ -1,6 +1,6 @@
 package Exercicios;
 
-public class Exercicio2 {
+public class ExercicioParImpar {
 
 	public static void main(String[] args) {
 		int num;
