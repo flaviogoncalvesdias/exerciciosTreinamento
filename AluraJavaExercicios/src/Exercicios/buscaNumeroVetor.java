@@ -1,5 +1,10 @@
 package Exercicios;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 import java.util.Random;
 
 import javax.swing.JOptionPane;
@@ -7,25 +12,30 @@ import javax.swing.JOptionPane;
 public class buscaNumeroVetor {
 	static Random random = new Random();
 	static boolean achou = false;
-	static int[] vetorNumeros;
+	static Integer[] vetorNumeros;
+
 	public static void main(String[] args) {
 
-		vetorNumeros = criaVetor(10);
-		imprimeVetor(vetorNumeros);
-		System.out.println("Após ordenação");
-		ordenaCrescente(vetorNumeros);
-		imprimeVetor(vetorNumeros);
+		buscaListaOrdenada(ordenaVetorList(criaVetor(100)));
 
-//		recebeNumero(vetorNumeros);
+	}
+
+	private static void buscaListaOrdenada(List listaOrdenada) {
+		int num =recebeInteiro();		
+		if(listaOrdenada.contains(num)) {
+			System.out.println("Numero encontrado! Posição: "+listaOrdenada.indexOf(num));
+		}else {
+			System.out.println("Numero Não encontrado!");
+
+		}
+		
 
 	}
 
 	private static void recebeNumero(int[] vetorNumeros) {
-		int numBuscado = Integer.parseInt(JOptionPane.showInputDialog("Digite o número que deseja Buscar:"));
-		
-		 if (!buscaNumero(vetorNumeros, numBuscado)) {
-		 System.out.println("Número buscado não se encontra no vetor! Tente de novo");
-		 }
+		if (!buscaNumero(vetorNumeros, recebeInteiro())) {
+			System.out.println("Número buscado não se encontra no vetor! Tente de novo");
+		}
 	}
 
 	private static Boolean buscaNumero(int[] vetorNumeros, int numBuscado) {
@@ -38,36 +48,49 @@ public class buscaNumeroVetor {
 		return achou;
 	}
 
-	private static int[] criaVetor(int tamanhoVetor) {
-		int vetorNumeros[] = new int[tamanhoVetor];
+	private static Integer[] criaVetor(int tamanhoVetor) {
+		Integer vetorNumeros[] = new Integer[tamanhoVetor];
 		for (int i = 0; i < vetorNumeros.length; i++) {
 			vetorNumeros[i] = random.nextInt(100);
-			System.out.println("Posição: " + i + " - Valor: " + vetorNumeros[i]);
+			// System.out.println("Posição: " + i + " - Valor: " + vetorNumeros[i]);
 		}
 		return vetorNumeros;
 	}
 
-	static void ordenaCrescente(int vet[]) {
+	static void ordenaCrescente(Integer[] vetorNumeros2) {
 		int j;
-	    int key;
-	    int i;
-	    
-	    for (j = 1; j < vet.length; j++)
-	    {
-	      key = vet[j];
-	      for (i = j - 1; (i >= 0) && (vet[i] > key); i--)
-	      {
-	    	  vet[i + 1] = vet[i];
-	       }
-	      vet[i + 1] = key;
-	    }
+		int key;
+		int i;
+
+		for (j = 1; j < vetorNumeros2.length; j++) {
+			key = vetorNumeros2[j];
+			for (i = j - 1; (i >= 0) && (vetorNumeros2[i] > key); i--) {
+				vetorNumeros2[i + 1] = vetorNumeros2[i];
+			}
+			vetorNumeros2[i + 1] = key;
+		}
 	}
-	
-	static void imprimeVetor(int vet[]) {
-		for (int i = 0; i < vet.length; i++) {
-			System.out.println(String.valueOf(vet[i]));
+
+	static void imprimeVetor(Integer[] vetorNumeros2) {
+		for (int i = 0; i < vetorNumeros2.length; i++) {
+			System.out.println(String.valueOf(vetorNumeros2[i]));
 
 		}
+	}
+
+	static List ordenaVetorList(Integer vet[]) {
+		List listaVetor = Arrays.asList(vet);
+		Collections.sort(listaVetor);
+		for (int i = 0; i < listaVetor.size(); i++) {
+			System.out.println(listaVetor.get(i));
+
+		}
+		return listaVetor;
+	}
+
+	public static Integer recebeInteiro() {
+		return Integer.parseInt(JOptionPane.showInputDialog("Digite o número que deseja Buscar:"));
+
 	}
 
 }

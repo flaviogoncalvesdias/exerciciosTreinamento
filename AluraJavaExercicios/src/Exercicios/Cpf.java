@@ -32,7 +32,7 @@ import javax.swing.*;
          int soma =0;
          for(int i=0; i<multiplicador.length; i++)
          {
-            soma = soma + multiplicador[i]*Character.digit(cpf.charAt(i), 10);//Character.digit "Verifica o numerico correspondente do caracter ex: "1" = 1"(cpf.charAt(i), 10)"O metodo charAt pega o caracter na posição que você está indicando e é necessário indicar qual a base que será utilizada"
+            soma = soma + multiplicador[i]*Character.digit(cpf.charAt(i), 10);
          }
          int resto = soma % 11;
          

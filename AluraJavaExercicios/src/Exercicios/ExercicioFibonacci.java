@@ -5,10 +5,6 @@ import javax.swing.JOptionPane;
 public class ExercicioFibonacci {
 
 	public static void main(String[] args) {
-		int atual = 0;
-		int prox = 0;
-		int ant = 1;
-
 		int elemento = Integer
 				.parseInt(JOptionPane.showInputDialog("Digite a quantidade de elementos da sequencia de Fibonacci: "));
 
@@ -21,11 +17,14 @@ public class ExercicioFibonacci {
 			vetorTermos[i]=vetorTermos[i-1]+vetorTermos[i-2];
 		}
 		
+		imprime(vetorTermos);
+
+	}
+
+	private static void imprime(Integer[] vetorTermos) {
 		for (int i = 0; i < vetorTermos.length; i++) {
 			System.out.println(vetorTermos[i].toString());
-			
 		}
-
 	}
 
 }
