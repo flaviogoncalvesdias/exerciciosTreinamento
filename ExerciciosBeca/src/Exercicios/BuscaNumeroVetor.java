@@ -9,7 +9,7 @@ import java.util.Random;
 
 import javax.swing.JOptionPane;
 
-public class buscaNumeroVetor {
+public class BuscaNumeroVetor {
 	static Random random = new Random();
 	static boolean achou = false;
 	static Integer[] vetorNumeros;

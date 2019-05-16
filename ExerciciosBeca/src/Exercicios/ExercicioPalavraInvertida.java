@@ -2,7 +2,7 @@ package Exercicios;
 
 import javax.swing.JOptionPane;
 
-public class ExercicioPalavrasOrdenadas {
+public class ExercicioPalavraInvertida {
 
 	public static void main(String[] args) {
 		String entrada = JOptionPane.showInputDialog("Escreva uma palavra: ");
